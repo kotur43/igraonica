@@ -30,6 +30,22 @@
           <dbTableFile dbTableName="Tipovi"/>
           <dbTableFile dbTableName="Uloge"/>
         </dbTableDirectory>
+        <modelFile modelName="Komentari"/>
+        <modelFile modelName="KomentariMapper"/>
+        <modelFile modelName="Korisnici"/>
+        <modelFile modelName="KorisniciMapper"/>
+        <modelFile modelName="Meni"/>
+        <modelFile modelName="MeniMapper"/>
+        <modelFile modelName="Radionice"/>
+        <modelFile modelName="RadioniceMapper"/>
+        <modelFile modelName="Rezervacije"/>
+        <modelFile modelName="RezervacijeMapper"/>
+        <modelFile modelName="Slike"/>
+        <modelFile modelName="SlikeMapper"/>
+        <modelFile modelName="Termini"/>
+        <modelFile modelName="TerminiMapper"/>
+        <modelFile modelName="Tipovi"/>
+        <modelFile modelName="TipoviMapper"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
