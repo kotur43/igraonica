@@ -18,7 +18,19 @@
           <layoutScriptFile layoutName="layout"/>
         </layoutScriptsDirectory>
       </layoutsDirectory>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Komentari"/>
+          <dbTableFile dbTableName="Korisnici"/>
+          <dbTableFile dbTableName="Meni"/>
+          <dbTableFile dbTableName="Radionice"/>
+          <dbTableFile dbTableName="Slike"/>
+          <dbTableFile dbTableName="Rezervacije"/>
+          <dbTableFile dbTableName="Termini"/>
+          <dbTableFile dbTableName="Tipovi"/>
+          <dbTableFile dbTableName="Uloge"/>
+        </dbTableDirectory>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
