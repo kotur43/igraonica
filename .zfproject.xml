@@ -12,7 +12,15 @@
         </controllerFile>
         <controllerFile controllerName="Error"/>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory>
+        <formFile formName="Komentari"/>
+        <formFile formName="Login"/>
+        <formFile formName="Radionice"/>
+        <formFile formName="Registration"/>
+        <formFile formName="Slike"/>
+        <formFile formName="Termini"/>
+        <formFile formName="Rezervisanje"/>
+      </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
           <layoutScriptFile layoutName="layout"/>
