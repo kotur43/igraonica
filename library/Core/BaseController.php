@@ -33,8 +33,20 @@ class Core_BaseController extends Zend_Controller_Action{
         foreach ($menuData as $menuItem){
             $link = split('/',$menuItem->getPutanja());
             $action = isset($link[1]) ? $link[1] : '';
-            $links[] = "<a href='".$this->view->url(array('controller'=>$link[0],'action'=>$action),'default',true)."'>".$menuItem->getNaslov()."</a>";
+            if (in_array($menuItem->getNaslov() == 'Radionice', $links)){
+                 $links[] = "<a class=\"drop\" href='".$this->view->url(array('controller'=>$link[0],'action'=>$action),'default',true)."'>".$menuItem->getNaslov()."</a><ul>";
+                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index'),'default',true)."'>Crtaonica</a>";
+                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index'),'default',true)."'>Maskaonica</a>";
+                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index'),'default',true)."'>Plesaonica</a></ul>"; 
+                 echo "</ul>";
+            }
+            else {
+                 $links[] = "<a href='".$this->view->url(array('controller'=>$link[0],'action'=>$action),'default',true)."'>".$menuItem->getNaslov()."</a>";
+            }
+            
+            
         }
+          
         if($this->isAuthentificated){
             $links[] = "<a href='".$this->view->url(array('controller'=>'User','action'=>'index'),'default',true)."'>Moj nalog</a>";
             $links[] = "<a href='".$this->view->url(array('controller'=>'Authentification','action'=>'logout'),'default',true)."'>Odjava</a>";
@@ -48,6 +60,7 @@ class Core_BaseController extends Zend_Controller_Action{
         if($idUloga==1){
             $links[] = "<a href='".$this->view->url(array('controller'=>'Administration','action'=>'index'),'default',true)."'>Administracija</a>";
         }
+        
         $tipMapper = new Application_Model_TipoviMapper();
         $this->view->slikeTipova = $tipMapper->fetchAll(0,3);
         $komentarMapper = new Application_Model_KomentariMapper();

@@ -16,7 +16,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _initPlaceholders(){
         $this->bootstrap('view');
         $view=$this->getResource('view');
-        $view->headTitle("Koja")->setSeparator(" | ");
+        $view->headTitle("Igraonica VK")->setSeparator(" | ");
         
     }
     protected function _initMenu(){

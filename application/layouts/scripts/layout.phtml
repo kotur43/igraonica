@@ -8,13 +8,11 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html>
 <head>
-<link rel="icon" href="<?php echo $this->baseUrl('images/demo/60x60.png');?>">
+<link rel="icon shortcut" href="<?php echo $this->baseUrl('images/demo/60x60.png');?>">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="<?php echo $this->baseUrl('layout/styles/layout.css');?>" rel="stylesheet" type="text/css" media="all">
 <?php print $this->headTitle(); ?>
-<?php print $this->headLink(); ?>
-<?php  print $this->headScript(); ?>
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -40,7 +38,6 @@ Licence URI: http://www.os-templates.com/template-terms
         <h1><a href="<?php echo $this->baseUrl('Index'); ?>">Igraonica Vitez Koja</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
-        
               <?php print $this->placeholder("menu"); ?>
       </nav>
       <!-- ################################################################################################ -->
@@ -57,27 +54,7 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- main body -->
     <!-- ################################################################################################ -->
                 <?php echo $this->layout()->content; ?>
-<!--    <div class="btmspace-50 center">
-      <h3 class="btmspace-10">Naše radionice</h3>
-    </div>
-    <ul class="nospace clear services">
-      <li class="one_third first"><a href="#">
-        <figure><img src="images/gallery/01.png" alt="">
-          <figcaption>Crtaonica</figcaption>
-        </figure>
-        </a></li>
-      <li class="one_third"><a href="#">
-        <figure><img src="images/gallery/02.png" alt="">
-          <figcaption>Maskaonica</figcaption>
-        </figure>
-        </a></li>
-      <li class="one_third"><a href="#">
-        <figure><img src="images/gallery/03.png" alt="">
-          <figcaption>Plesaonica</figcaption>
-        </figure>
-        </a></li>
-    </ul>
-    <p class="center"><a class="btn inverse" href="#">Prijavi se!</a></p>-->
+
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>
@@ -183,7 +160,5 @@ Licence URI: http://www.os-templates.com/template-terms
 <script src="<?php echo $this->baseUrl('layout/scripts/jquery.min.js');?>"></script>
 <script src="<?php echo $this->baseUrl('layout/scripts/jquery.backtotop.js');?>"></script>
 <script src="<?php echo $this->baseUrl('layout/scripts/jquery.mobilemenu.js');?>"></script>
-<script src="<?php echo $this->baseUrl('http://maps.google.com/maps/api/js?sensor=false');?>"></script>
-<script src="<?php echo $this->baseUrl('layout/scripts/gmaps.js');?>"></script>
 </body>
 </html>
