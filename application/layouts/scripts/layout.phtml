@@ -9,10 +9,12 @@ Licence URI: http://www.os-templates.com/template-terms
 <html>
 <head>
 <link rel="icon" href="<?php echo $this->baseUrl('images/demo/60x60.png');?>">
-<title>Igraonica "Vitez Koja"</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="<?php echo $this->baseUrl('layout/styles/layout.css');?>" rel="stylesheet" type="text/css" media="all">
+<?php print $this->headTitle(); ?>
+<?php print $this->headLink(); ?>
+<?php  print $this->headScript(); ?>
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -38,19 +40,8 @@ Licence URI: http://www.os-templates.com/template-terms
         <h1><a href="<?php echo $this->baseUrl('Index'); ?>">Igraonica Vitez Koja</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
-        <ul class="clear">
-          <li class="active"><a href="<?php echo $this->baseUrl('Index'); ?>">Početna</a></li>
-          <li><a class="drop" href="<?php echo $this->baseUrl('Radionice'); ?>">Radionice</a>
-            <ul>
-              <li><a href="<?php echo $this->baseUrl('Radionice/tip'); ?>">Crtaonica</a></li>
-              <li><a href="<?php echo $this->baseUrl('Radionice/tip'); ?>">Maskaonica</a></li>
-              <li><a href="<?php echo $this->baseUrl('Radionice/tip'); ?>">Plesaonica</a></li>            </ul>
-          </li>
-          <li><a href="<?php echo $this->baseUrl('Galerije'); ?>">Galerija</a>
-          </li>
-          <li><a href="<?php echo $this->baseUrl('Authentification/login'); ?>">Prijava</a></li>
-          <li><a href="<?php echo $this->baseUrl('Authentification/registration'); ?>">Registracija</a></li>
-        </ul>
+        
+              <?php print $this->placeholder("menu"); ?>
       </nav>
       <!-- ################################################################################################ -->
     </header>

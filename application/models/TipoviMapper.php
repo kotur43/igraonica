@@ -37,7 +37,6 @@ class Application_Model_TipoviMapper
             $tip = new Application_Model_Tipovi();
             $tip->setId_tip($row->id_tip);
             $tip->setNaziv($row->naziv);
-            $tip->setIkonica($row->ikonica);
             $tipovi[] = $tip;
         }
         return $tipovi;

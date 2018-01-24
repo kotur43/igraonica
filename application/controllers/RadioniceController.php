@@ -1,6 +1,6 @@
 <?php
 
-class RadioniceController extends Zend_Controller_Action
+class RadioniceController extends Core_BaseController
 {
 
     public function init()

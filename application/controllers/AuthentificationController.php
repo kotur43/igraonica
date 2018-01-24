@@ -1,6 +1,6 @@
 <?php
 
-class AuthentificationController extends Zend_Controller_Action
+class AuthentificationController extends Core_BaseController
 {
 
     private $errorMessages = array();

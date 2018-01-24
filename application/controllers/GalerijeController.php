@@ -1,6 +1,6 @@
 <?php
 
-class GalerijeController extends Zend_Controller_Action
+class GalerijeController extends Core_BaseController
 {
 
     public function init()
