@@ -83,6 +83,9 @@
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="pagination"/>
+          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
           </viewControllerScriptsDirectory>
@@ -118,6 +121,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Administration">
             <viewScriptFile forActionName="termini"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Radionice">
+            <viewScriptFile forActionName="dodajkomentar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Radionice">
+            <viewScriptFile forActionName="prikazi"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="reservation"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -155,6 +167,7 @@
         <testApplicationControllerDirectory>
           <testApplicationControllerFile forControllerName="Index">
             <testApplicationActionMethod forActionName="index"/>
+            <testApplicationActionMethod forActionName="pagination"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Administration">
             <testApplicationActionMethod forActionName="index"/>
@@ -173,9 +186,12 @@
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Radionice">
             <testApplicationActionMethod forActionName="index"/>
+            <testApplicationActionMethod forActionName="dodajkomentar"/>
+            <testApplicationActionMethod forActionName="prikazi"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="User">
             <testApplicationActionMethod forActionName="index"/>
+            <testApplicationActionMethod forActionName="reservation"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>

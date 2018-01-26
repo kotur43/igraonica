@@ -9,6 +9,8 @@
     <link href="<?php echo $this->baseUrl('assets/css/font-awesome.css');?>" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
     <link href="<?php echo $this->baseUrl('assets/css/custom.css');?>" rel="stylesheet" />
+    
+    <link href="<?php echo $this->baseUrl('assets/css/morris.css');?>" rel="stylesheet">
      <!-- GOOGLE FONTS-->
    <link href='<?php echo $this->baseUrl('http://fonts.googleapis.com/css?family=Open+Sans');?>' rel='stylesheet' type='text/css' />
    <?php echo $this->headScript();?>
@@ -26,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="<?php echo $this->baseUrl('Administration/index'); ?>">
                         <img src="<?php echo $this->baseUrl('images/demo/60x60.png');?>" />
 
                     </a>
@@ -39,15 +41,16 @@
                 </span>
             </div>
         </div>
+        <div class="clear"></div>
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                  <?php    
                  $links = array(
-                     'Upravljanje radionicama'=>$this->baseUrl('Administration/radionice'),
-                     'Upravljanje slikama'=>$this->baseUrl('Administration/slike'),
-                     'Upravljanje terminima'=>$this->baseUrl('Administration/termini'),
+                     'Upravljanje radionicama'=>$this->baseUrl('Administration/radionice/operation/prikaz'),
+                     'Upravljanje slikama'=>$this->baseUrl('Administration/slike/operation/prikaz'),
+                     'Upravljanje terminima'=>$this->baseUrl('Administration/termini/operation/prikaz'),
                      'Odjava'=>$this->baseUrl('Authentification/logout'),
                      'Povratak na sajt'=>$this->baseUrl('Index')
                       );
@@ -67,7 +70,9 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>ADMIN DASHBOARD</h2>   
+                    <h2>ADMIN DASHBOARD</h2>  
+                     
+                    <?php echo $this->layout()->content; ?>
                     </div>
                 </div>              
                 <!-- /. ROW  -->

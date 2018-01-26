@@ -18,7 +18,7 @@ class IndexController extends Core_BaseController {
         $messages = $this->_helper->FlashMessenger->getMessages();
         $this->view->messages = $messages;
     }
-
+    
     public function paginationAction()
     {
         // action body
@@ -38,6 +38,7 @@ class IndexController extends Core_BaseController {
         
         //$this->view->radioniceUskoro = $radioniceUskoro;
     }
+    
 
 
 }

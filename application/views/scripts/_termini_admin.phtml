@@ -1,0 +1,7 @@
+<tr>
+    <td><?php echo $this->id_termin;?></td>
+    <td><?php echo $this->vreme;?></td>
+    <td><?php echo $this->cena.' &euro; ';?></td>
+    <td><a href="<?php echo $this->baseUrl('Administration/termini/operation/izmeni/id/'.$this->id_termin);?>">Izmeni</a></td>
+    <td><a href="<?php echo $this->baseUrl('Administration/termini/operation/obrisi/id/'.$this->id_termin);?>">Obrisi</a></td>
+</tr>

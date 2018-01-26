@@ -1,0 +1,9 @@
+<tr>
+    <td><?php echo $this->id_radionica;?></td>
+    <td><?php echo $this->naslov;?></td>
+    <td><?php echo $this->opis;?></td>
+    <td><?php echo date("d.m.Y",$this->vremePocetka);?></td>
+    <td><?php echo date("d.m.Y",$this->vremeZavrsetka);?></td>
+    <td><a href="<?php echo $this->baseUrl('Administration/radionice/operation/izmeni/id/'.$this->id_radionica);?>">Izmeni</a></td>
+    <td><a href="<?php echo $this->baseUrl('Administration/radionice/operation/obrisi/id/'.$this->id_radionica);?>">Obrisi</a></td>
+</tr>

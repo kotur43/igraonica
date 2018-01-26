@@ -1,4 +1,67 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Administration</b> and script/action name <b>index</b></p>
-</div>
+<head>
+<style>
+table.steelBlueCols {
+  display: inline-block;
+  border: 4px solid #555555;
+  background-color: #555555;
+  width: 640px;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.steelBlueCols td, table.steelBlueCols th {
+  border: 1px solid #555555;
+}
+table.steelBlueCols tbody td {
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+table.steelBlueCols thead {
+  background: #398AA4;
+  border-bottom: 10px solid #398AA4;
+}
+table.steelBlueCols thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+  border-left: 2px solid #398AA4;
+}
+table.steelBlueCols thead th:first-child {
+  border-left: none;
+}
+
+table.steelBlueCols a{
+  display: inline-block;
+  background: #214761;
+  color: white;
+  padding: 2px 8px;
+}
+table.steelBlueCols a:hover{
+  color: #111111;
+  background: #ffffff;
+  text-decoration: none;
+}
+</style>
+
+<nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <table class="steelBlueCols">
+                    <tr>
+                        <?php    
+                 $links = array(
+                     'Upravljanje radionicama'=>$this->baseUrl('Administration/radionice/operation/prikaz'),
+                     'Upravljanje slikama'=>$this->baseUrl('Administration/slike/operation/prikaz'),
+                     'Upravljanje terminima'=>$this->baseUrl('Administration/termini/operation/prikaz'),
+                     'Odjava'=>$this->baseUrl('Authentification/logout'),
+                     'Povratak na sajt'=>$this->baseUrl('Index')
+                      );
+                foreach ($links as $key=>$value){
+                    echo "<td><a href='".$value."'>".$key."</a></td>";
+                }
+                 ?>
+                    </tr>   
+                </table>
+                 
+            </div>
+</nav>

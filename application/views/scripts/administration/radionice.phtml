@@ -1,4 +1,71 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Administration</b> and script/action name <b>radionice</b></p>
-</div>
+<h3>Radionice</h3>
+<?php
+    if(!empty($this->errors)){
+        foreach ($this->errors as $error){
+            ?>
+<div class="alert alert-danger"><?php echo $error; ?></div>
+<?php
+        }
+    }
+?>
+<?php
+    if(!empty($this->success)){
+        foreach ($this->success as $data){
+            ?>
+<div class="alert alert-success"><?php echo $data; ?></div>
+<?php
+        }
+    }
+?>
+
+<?php if($this->prikazi):?>
+  
+        <form action="<?php echo $this->baseUrl('Administration/radionice/operation/checkDate');?>" method="post">
+        <div class='col-sm-3'>
+            <div class="form-group">
+                <label>Početak:</label>
+                <div class='input-group date' id='datetimepicker1'>
+                    
+                    <input type='text' class="form-control" name="pocetak" value="<?php echo $this->pocetak; ?>"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-3'>
+            <div class="form-group">
+                <label>Završetak:</label>
+                <div class='input-group date' id='datetimepicker2'>
+                     
+                    <input type='text' class="form-control" name="zavrsetak" value="<?php echo $this->zavrsetak; ?>"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-3'>
+            <div class="form-group">   
+                <input type="submit" value="Proveri raspored" class="btn btn-primary"/>
+            </div>
+        </div>
+        </form>
+        <?php endif;?>
+        <?php echo "<a href='".$this->baseUrl('Administration/radionice/operation/checkDate')."'>Dodavanje</a>";?>
+        <?php if(!empty($this->radionice)):?>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th>Pocetak</th>
+                <th>Zavrsetak</th>
+                <th>Izmeni</th>
+                <th>Obrisi</th>
+            </tr>
+         <?php print $this->partialLoop('_radionica_admin.phtml',$this->radionice); ?>
+        </table>
+                <?php endif;?>
+<br/><br/><br/><br/><br/><br/>
+        <?php echo $this->form;?>

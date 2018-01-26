@@ -1,0 +1,7 @@
+<tr>
+    <td><?php echo $this->id_slika;?></td>
+    <td><img src="<?php echo $this->baseUrl($this->putanja);?>" width="200px"/></td>
+    <td><?php echo $this->radionica->naslov;?></td>
+    <td><a href="<?php echo $this->baseUrl('Administration/slike/operation/izmeni/id/'.$this->id_slika);?>">Izmeni</a></td>
+    <td><a href="<?php echo $this->baseUrl('Administration/slike/operation/obrisi/id/'.$this->id_slika);?>">Obrisi</a></td>
+</tr>

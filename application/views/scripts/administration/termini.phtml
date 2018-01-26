@@ -1,4 +1,14 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Administration</b> and script/action name <b>termini</b></p>
-</div>
+<?php echo "<a href='".$this->baseUrl('Administration/termini/operation/insert')."'>Dodavanje</a>";?>
+        <?php if(!empty($this->termini)):?>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Vreme</th>
+                <th>Cena</th>
+                <th>Izmeni</th>
+                <th>Obrisi</th>
+            </tr>
+         <?php print $this->partialLoop('_termini_admin.phtml',$this->termini); ?>
+        </table>
+                <?php endif;?>
+<?php if($this->show) echo $this->form;?>

@@ -31,7 +31,7 @@ class Application_Form_Radionice extends Zend_Form
         $opis->setValue($this->getRadionica()->opis);
         
         $tipDDL = new Zend_Form_Element_Select('ddlTip');
-        $tipMapper = new Application_Model_TipMapper();
+        $tipMapper = new Application_Model_TipoviMapper();
         
         $tipovi = $tipMapper->fetchAll();
         $tipDDL->addMultiOption('0', 'Izaberite');
