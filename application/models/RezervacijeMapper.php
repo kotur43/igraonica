@@ -24,7 +24,9 @@ class Application_Model_RezervacijeMapper
     }
     
     public function fetchAllWhereTermin(Application_Model_Rezervacije $rezervacija){
-        $rezervacije = $this->getDbTable()->fetchAll('datum = "'.$rezervacija->getDatum().'"');
+        $rezervacije = $this->getDbTable()->fetchAll(
+                'datum = "'.$rezervacija->getDatum().'" '
+                . 'AND id_termin = "'.$rezervacija->getTermin(). '"');
         $idTermini = array();
         foreach ($rezervacije as $row){
             $idTermini[]= $row->id_termin;

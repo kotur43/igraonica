@@ -43,22 +43,25 @@ class UserController extends Core_BaseController
                 $zakazivanjeMapper = new Application_Model_RezervacijeMapper();
                 $idUnetog = $zakazivanjeMapper->insert($zakazivanje);
                 if(!empty($idUnetog)){
-                    $this->_helper->FlashMessenger->addMessage("Rezervisana zurka!");
-                } else {
-                    $this->_helper->FlashMessenger->addMessage("OOOPS. Greška pri rezervaciji.");
+                    $this->view->message = 'Uspesno zakazan rodjendan.';
+                }
+                else {
+                    
+                    $this->view->message = 'Greska!';
                 }
             }
-            else{
+            else
+            {
                 $datum = $request->getParam('date');
                 $nizDate = split('-',$datum);
                 $dayOfWeek = date("w", mktime(0,0,0,$nizDate[1],$nizDate[2],$nizDate[0]));
                 if($dayOfWeek == 6 || $dayOfWeek == 0){
                     $zakazivanje = new Application_Model_Rezervacije();
-                    $zakazivanje->setDatum($datum);
                     $zak = new Application_Model_RezervacijeMapper();
                     $termini = $zak->fetchAllWhereTermin($zakazivanje);
-                    if(count($termini)==0){
-                        $this->view->error = 'Nema slobodnih termina za izabrani datum.';
+                    if(count($termini) > 0){
+                        $prom = (count($termini));
+                        $this->view->error = "Ima $prom slobodnih termina";
                     }
                     else{
                         $zakazivanjeForma = new Application_Form_Rezervisanje($termini,$datum);
@@ -68,16 +71,13 @@ class UserController extends Core_BaseController
                 }
                 else{
                     $this->view->error = 'Zakazivanje je dozvoljeno samo za dane vikenda.';
+                    $this->view->message = 'Rodjendani se zakazuju samo za dane vikenda!';
+                    $this->view->minDate = date("Y-m-d");
+                    $this->view->maxDate = date("Y-m-d",time() + 86000*30*2); // samo 2 meseca unapred moze da zakaze
                 }
                 
             }
-        }
-        $this->view->message = 'Rodjendani se zakazuju samo za dane vikenda!';
-        $this->view->minDate = date("Y-m-d");
-        $this->view->maxDate = date("Y-m-d",time() + 86000*30*2); // samo 2 meseca unapred moze da zakaze
         
+        }
     }
-
-
 }
-
