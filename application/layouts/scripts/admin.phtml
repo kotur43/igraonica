@@ -9,8 +9,18 @@
     <link href="<?php echo $this->baseUrl('assets/css/font-awesome.css');?>" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
     <link href="<?php echo $this->baseUrl('assets/css/custom.css');?>" rel="stylesheet" />
-    
-    <link href="<?php echo $this->baseUrl('assets/css/morris.css');?>" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+  $( function() {
+    $( "#datepicker2" ).datepicker();
+  } );
+  </script>
      <!-- GOOGLE FONTS-->
    <link href='<?php echo $this->baseUrl('http://fonts.googleapis.com/css?family=Open+Sans');?>' rel='stylesheet' type='text/css' />
    <?php echo $this->headScript();?>
@@ -36,7 +46,7 @@
                 </div>
               
                 <span class="logout-spn" >
-                  <a href="#" style="color:#fff;">LOGOUT</a>  
+                    <a href="<?php echo $this->baseUrl('Authentification/logout')?>" style="color:#fff;">LOGOUT</a>  
 
                 </span>
             </div>
@@ -51,7 +61,6 @@
                      'Upravljanje radionicama'=>$this->baseUrl('Administration/radionice/operation/prikaz'),
                      'Upravljanje slikama'=>$this->baseUrl('Administration/slike/operation/prikaz'),
                      'Upravljanje terminima'=>$this->baseUrl('Administration/termini/operation/prikaz'),
-                     'Odjava'=>$this->baseUrl('Authentification/logout'),
                      'Povratak na sajt'=>$this->baseUrl('Index')
                       );
                 foreach ($links as $key=>$value){

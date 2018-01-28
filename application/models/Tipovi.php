@@ -23,14 +23,6 @@ class Application_Model_Tipovi
         $this->naziv = $naziv;
     }
 
-    public function getIkonica() {
-        return $this->fotka;
-    }
-
-    public function setIkonica($ikonica) {
-        $this->fotka = $fotka;
-    }
-
 
 }
 

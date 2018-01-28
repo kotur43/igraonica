@@ -34,6 +34,7 @@ class IndexController extends Core_BaseController {
             $this->view->pagination = $paginator;
             $this->view->pageRange = $paginator->getPages()->pagesInRange;
             $this->view->currentPage = $paginator->getCurrentPageNumber();
+                    
         }
         
         //$this->view->radioniceUskoro = $radioniceUskoro;

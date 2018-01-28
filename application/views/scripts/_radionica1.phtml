@@ -1,0 +1,7 @@
+<div class="col-lg-3 border-box col-lg-offset-1">
+      <h4><a href='<?php echo $this->baseUrl('/Radionice/prikazi/id/'.$this->id_radionica);?>'><?php echo $this->naslov; ?></a></h4>
+      <p><?php echo $this->opis; ?></p>
+      <span>Vreme početka: <?php echo date("d.m.Y H:i",$this->vremePocetka); ?></span>
+      <span>Vreme zavrsetka: <?php echo date("d.m.Y H:i",$this->vremeZavrsetka); ?></span>
+      <p>Tip: <?php echo $this->tip->naziv; ?></p>
+ </div>

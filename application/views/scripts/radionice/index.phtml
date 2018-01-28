@@ -1,4 +1,10 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Radionice</b> and script/action name <b>index</b></p>
+<h3><?php echo $this->title;?></h3>
+<div class="row">
+    <p><?php echo $this->error;?></p>
+    
+    <?php print $this->partialLoop('_radionica1.phtml',$this->uPripremi); ?>
+    <h3>
+        <?php if(!empty($this->zavrseneRadionice)){echo $this->naslov;}?>
+    </h3>
+<?php print $this->partialLoop('_radionica1.phtml',$this->zavrseneRadionice); ?>
 </div>

@@ -78,6 +78,24 @@ class Application_Model_RadioniceMapper
         }
         return $radionice;
     }
+    
+    public function fetchAllOfset($tip = 1){
+        $result = $this->getDbTable()->fetchAll('vremePocetka > '.time(),'vremePocetka ASC');
+        $radionice = array();
+        foreach ($result as $row){
+            $radionica = new Application_Model_Radionice();
+            $radionica->setId_radionica($row->id_radionica);
+            $radionica->setNaslov($row->naslov);
+            $radionica->setOpis($row->opis);
+            $radionica->setVremePocetka($row->vremePocetka);
+            $radionica->setVremeZavrsetka($row->vremeZavrsetka);
+            $radionica->setKorisnik($row->findParentRow('Application_Model_DbTable_Korisnici'));
+            $radionica->setTip($row->$tip);
+            $radionice[] = $radionica;
+        }
+        return $radionice;
+    }
+    
     public function find($id,Application_Model_Radionice $radionica){
         $result = $this->getDbTable()->find($id);
         if (count($result) == 0) {

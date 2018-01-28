@@ -17,24 +17,29 @@ class Application_Form_Rezervisanje extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
         $this->setAction('/User/reservation/operation/rezervisi')->setMethod('post');
         
-        $select = new Zend_Form_Element_Select('ddlTermin');
-        $select->setLabel('Termin:');
-        $select->addMultiOption('0','Izaberite');
-        foreach ($this->options as $option){
-               $select->addMultiOption($option->id_termin,$option->vreme);
-        }
         $hidden = new Zend_Form_Element_Hidden('hdnDatum');
         $hidden->setValue($this->datum);
-        $select->setRequired(true);
         
         $opis = new Zend_Form_Element_Textarea('taOpis');
         $opis->setLabel('Opis');
         $opis->setRequired(true);
         $opis->setAttrib('COLS', '40')->setAttrib('ROWS', '4');
+        $opis->setAttrib('required','true');
         
         $brojOsoba = new Zend_Form_Element_Text('tbBroj');
         $brojOsoba->setLabel('Broj osoba:');
-        $brojOsoba->addValidator('regex',false,array('pattern'=>'/^\d{1,3}$/'))->addErrorMessage('Morate uneti od 1 do 3 cifre.');
+        $brojOsoba->setRequired(true);
+        $brojOsoba->setAttrib('required','true');
+        
+        
+        $select = new Zend_Form_Element_Select('ddlTermin');
+        $select->setLabel('Termin:');
+        $select->setAttrib('required','true');
+        $select->addMultiOption('0','Izaberite');
+        $select->setRequired(true);
+        foreach ($this->options as $option){
+               $select->addMultiOption($option->id_termin,$option->vreme);
+        }
         
         $button = new Zend_Form_Element_Submit('btnLogin');
         $button->setAttrib('class', 'btn btn-default');

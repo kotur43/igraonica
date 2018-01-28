@@ -35,9 +35,9 @@ class Core_BaseController extends Zend_Controller_Action{
             $action = isset($link[1]) ? $link[1] : '';
             if (in_array($menuItem->getNaslov() == 'Radionice', $links)){
                  $links[] = "<a class=\"drop\" href='".$this->view->url(array('controller'=>$link[0],'action'=>$action),'default',true)."'>".$menuItem->getNaslov()."</a><ul>";
-                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index'),'default',true)."'>Crtaonica</a>";
-                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index'),'default',true)."'>Maskaonica</a>";
-                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index'),'default',true)."'>Plesaonica</a></ul>"; 
+                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index', 'tip'=>'1'),'default',true)."'>Crtaonica</a>";
+                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index', 'tip'=>'2'),'default',true)."'>Maskaonica</a>";
+                 $links[] = "<a href='".$this->view->url(array('controller'=>'Radionice','action'=>'index', 'tip'=>'3'),'default',true)."'>Plesaonica</a></ul>"; 
                  echo "</ul>";
             }
             else {

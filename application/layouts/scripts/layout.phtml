@@ -13,6 +13,15 @@ Licence URI: http://www.os-templates.com/template-terms
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="<?php echo $this->baseUrl('layout/styles/layout.css');?>" rel="stylesheet" type="text/css" media="all">
 <?php print $this->headTitle(); ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+  </script>
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -26,7 +35,7 @@ Licence URI: http://www.os-templates.com/template-terms
       <!-- ################################################################################################ -->
       <article>
         <h1 class="heading">Igraonica "Vitez Koja"</h1>
-        <a class="btn" href="<?php echo $this->baseUrl('Radionice'); ?>">Rezerviši termin</a>
+        <a class="btn" href="<?php echo $this->baseUrl('Authentification\login'); ?>">Rezerviši termin</a>
       </article>
     </div>
   </div>
@@ -67,13 +76,8 @@ Licence URI: http://www.os-templates.com/template-terms
   <div class="hoc container clear"> 
     <!-- ################################################################################################ -->
     <div class="testimonial clear">
-      <div class="one_third">
-        <blockquote>Ova igraonica je najbolja u kraju!</blockquote>
-        <figure><img class="circle" src="<?php echo $this->baseUrl('images/demo/60x60.png');?>" alt="">
-          <figcaption><strong>Pera Peric</strong><br>
-            <em>Roditelj</em></figcaption>
-        </figure>
-      </div>
+      
+        <?php print $this->partialLoop('_topKomentar.phtml',$this->topKomentari); ?>
     </div>
     <p class="center"><a class="btn" href="<?php echo $this->baseUrl('User'); ?>">Ostavi svoj komentar</a></p>
     <!-- ################################################################################################ -->
@@ -93,17 +97,31 @@ Licence URI: http://www.os-templates.com/template-terms
     </div>
     <div class="latest">
       <article class="clear">
-      	<div class="one_third">
-          <h3 class="heading">Maskaonica za trogodisnjake</h3>
-          <ul class="nospace meta">
-            <li>
-              <time datetime="2018-02-06">6<sup>th</sup> Feb 2018</time>
-            </li>
-            <li>by <a href="#">Admin</a></li>
-          </ul>
-          <p>Tog i tog datuma odrzace se nova maskaonica za trogodisnjake blblbl</p>
-        </div>
+      	
+            
+                      <?php print $this->partialLoop('_radionica2.phtml',$this->pagination); ?>
+        
+       
       </article>
+        <nav class="pagination">
+            
+        <?php
+        
+        // echo var_dump($this->pagination->getPages());
+            
+        $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            foreach ($this->pageRange as $page){
+                if($actual_link == 'http://igraonica.ict/Index/index/page/'.$page)
+                {
+                    echo "<li class='current'><a href='".$this->baseUrl('/Index/index/page/'.$page)."' data-page='".$page."'>".$page."</a></li>";
+                }
+                else
+                {
+                    echo "<li><a href='".$this->baseUrl('/Index/index/page/'.$page)."' data-page='".$page."'>".$page."</a></li>";
+                }
+                }
+        ?>
+        </nav>
     </div>
     <!-- ################################################################################################ -->
     <div class="clear"></div>

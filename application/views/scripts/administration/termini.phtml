@@ -1,5 +1,28 @@
-<?php echo "<a href='".$this->baseUrl('Administration/termini/operation/insert')."'>Dodavanje</a>";?>
-        <?php if(!empty($this->termini)):?>
+
+<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8'><h3>Upravljanje terminima<br/></h3></div>
+<?php
+    if(!empty($this->errors)){
+        foreach ($this->errors as $error){
+            ?>
+<div class="alert alert-danger"><?php echo $error; ?></div>
+<?php
+        }
+    }
+?>
+<?php
+    if(!empty($this->success)){
+        foreach ($this->success as $data){
+            ?>
+<div class="alert alert-success"><?php echo $data; ?></div>
+<?php
+        }
+    }
+?>
+
+        <div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+            <?php echo "<a class='btn btn-primary' href='".$this->baseUrl('Administration/termini/operation/insert')."'>Dodavanje</a>";?>
+            <br/>
+        </div>        <?php if(!empty($this->termini)):?>
         <table class="table">
             <tr>
                 <th>ID</th>

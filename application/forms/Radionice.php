@@ -26,6 +26,8 @@ class Application_Form_Radionice extends Zend_Form
         $naslov->setValue($this->getRadionica()->naslov);
         
         $opis = new Zend_Form_Element_Textarea('taOpis');
+        
+        $opis->setLabel('Opis:');
         $opis->setAttrib('COLS', '40')->setAttrib('ROWS', '4');
         $this->required($opis, 'Opis');
         $opis->setValue($this->getRadionica()->opis);

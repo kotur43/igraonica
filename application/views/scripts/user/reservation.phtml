@@ -1,4 +1,25 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>User</b> and script/action name <b>reservation</b></p>
+<div class="content">
+    
 </div>
+<p>
+   <?php echo $this->message;?>
+</p>
+        <p>Izaberi datum: </p>
+        <?php 
+            $disable = "";
+            if(!empty($this->forma))
+            {
+                $disable = 'disabled="on" value="'.$this->datum.'"';
+            }
+            ?>
+        <form action="<?php echo $this->baseUrl('User/reservation')?>" method="post">
+            <input type="date" min="<?php echo $this->minDate;?>" max="<?php echo $this->maxDate; ?>" name="date" <?php echo $disable; ?>/>
+            <?php if($disable==""):?>
+            <br/>
+            <input type="submit" name="dugme" value="Prikaži" class="btn"/> <?php endif;?>
+        </form>
+        <?php echo $this->error;?>
+        <?php echo $this->forma;?>
+        <?php echo $this->message;?>
+</div>
+

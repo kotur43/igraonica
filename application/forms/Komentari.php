@@ -14,7 +14,7 @@ class Application_Form_Komentari extends Zend_Form
         
         $button = new Zend_Form_Element_Submit('btnKomentar');
         $button->setLabel('Unesi komentar');
-        $button->setAttrib('class', 'btn btn-primary');
+        $button->setAttrib('class', 'btn');
         
         $this->addElements(array($tekst, $button));
     }

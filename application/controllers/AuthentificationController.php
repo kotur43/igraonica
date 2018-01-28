@@ -14,11 +14,16 @@ class AuthentificationController extends Core_BaseController
 
     public function indexAction()
     {
+        $this->_helper->viewRenderer->setNoRender(true);
+        if($this->isAuthentificated){
+            $this->redirect("/User");
+        }
         $this->redirect('Authentification/login');
     }
 
     public function registrationAction()
-    {
+    {   
+        
         // action body
         $registrationForm = new Application_Form_Registration();
         $request = $this->getRequest();
@@ -50,7 +55,12 @@ class AuthentificationController extends Core_BaseController
 
     public function loginAction()
     {
-        // action body
+//      //action body
+        
+        if($this->isAuthentificated){
+            $this->redirect("/User");
+        }
+        else {
         $loginForm = new Application_Form_Login();
         $request = $this->getRequest();
         if($request->isPost() && $loginForm->isValid($request->getPost())){
@@ -80,6 +90,7 @@ class AuthentificationController extends Core_BaseController
             }
         }
         $this->view->form = $loginForm;
+        }
     }
 
     public function logoutAction()
@@ -91,7 +102,7 @@ class AuthentificationController extends Core_BaseController
         }
         $this->redirect("/Index");
     }
-
+    
 
 }
 

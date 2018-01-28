@@ -1,0 +1,14 @@
+<div class="one_third">
+    
+<h3 class="heading"><a href="<?php echo $this->baseUrl('/Radionice/prikazi/id/'.$this->id_radionica)?>"><?php echo $this->naslov; ?></a></h3>
+          <ul class="nospace meta">
+            <li>
+              <time datetime="2018-02-06"><?php echo date("d. M, y.", $this->vremePocetka);?><sup></sup></time>
+            </li>
+            <li>Tip: <?php 
+            if($this->tip->id_tip == 1){echo "Crtaonica";}
+            if($this->tip->id_tip == 2){echo "Maskaonica";}
+            if($this->tip->id_tip == 3){echo "Plesaonica";} ?> </li>
+          </ul>
+<p><?php echo $this->opis; ?> <a href="<?php echo $this->baseUrl('/Radionice/prikazi/id/'.$this->id_radionica)?>">Read More</a></p>
+</div>

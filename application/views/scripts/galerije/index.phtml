@@ -1,4 +1,8 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Galerije</b> and script/action name <b>index</b></p>
-</div>
+<div id="gallery">
+        <figure>
+          <header class="heading">Najlepše fotografije sa radionica</header>
+          <ul class="nospace clear">
+            <?php print $this->partialLoop('_slika.phtml',$this->slikeGalerija); ?>
+          </ul>
+        </figure>
+      </div>

@@ -1,4 +1,16 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>User</b> and script/action name <b>index</b></p>
+<h3>Dobro došli u korisnički panel!</h3>
+
+<div class="content"> 
+      <!-- ################################################################################################ -->
+      <h1>
+      <?php
+        foreach ($this->links as $key=>$value)
+        {
+        echo "<a class='btn' href='".$value."'>".$key."</a>";
+        }
+       ?>
+      </h1>
+      <img class="imgr borderedbox inspace-5" src="images/demo/60x60.png" alt="Vitez Koja">
+      <p>Kada kliknete na dugme izaberite dan u toku vikenda koji bi Vam odgovarao.</p>
+      <p>Ukoliko postoji slobodan termin otvorice Vam se forma u kojoj cete upisati broj osoba i izabrati termin koji Vam odgovara.</p>
 </div>

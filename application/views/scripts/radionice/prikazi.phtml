@@ -1,4 +1,46 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>User</b> and script/action name <b>prikazi</b></p>
+<?php
+            foreach ($this->messages as $message){
+                ?>
+        <div class="alert alert-info"><?php echo $message; ?></div>
+        <?php
+            }
+        ?>
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content"> 
+        <h3><?php echo $this->radionica->naslov;?></h3>
+        <span>Vreme početka: <?php echo date("d.m.Y H:i",$this->radionica->vremePocetka); ?></span><br/>
+        <span>Vreme zavrsetka: <?php echo date("d.m.Y H:i",$this->radionica->vremeZavrsetka); ?></span>
+        <p><?php echo $this->radionica->opis; ?></p>
+      <div id="gallery">
+        <figure>
+          <header class="heading">Najlepše fotografije sa radionica</header>
+          <ul class="nospace clear">
+              <?php print $this->partialLoop('_slika.phtml',$this->slike); ?>
+          </ul>
+        </figure>
+      </div>
+      
+      <div id="comments">
+        <h2>Komentari</h2>
+        <ul>
+          <li>
+            <article>      
+                <?php print $this->partialLoop('_komentar.phtml',$this->komentari); ?>
+            </article>
+          </li>
+        </ul>
+        <?php if(!empty($this->logged)):?>
+        <h2>Napiši komentar</h2>
+                    <?php echo $this->form;?>
+        <?php endif;?>
+        
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
 </div>
+    
