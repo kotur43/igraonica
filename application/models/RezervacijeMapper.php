@@ -24,16 +24,12 @@ class Application_Model_RezervacijeMapper
     }
     
     public function fetchAllWhereTermin(Application_Model_Rezervacije $rezervacija){
-        $rezervacije = $this->getDbTable()->fetchAll(
-                'datum = "'.$rezervacija->getDatum().'" '
-                . 'AND id_termin = "'.$rezervacija->getTermin(). '"');
-        $idTermini = array();
-        foreach ($rezervacije as $row){
-            $idTermini[]= $row->id_termin;
-        }
+        $rezervisanje = $this->getDbTable()->fetchAll();
+        $datum = $rezervacija->getDatum();
         $termini = new Application_Model_TerminiMapper();
-        $resultArray=$termini->dohvati(implode(',',$idTermini));
+        $resultArray=$termini->dohvati($datum);
         return $resultArray;
+        
     }
     
     private function where(Application_Model_Rezervacije $rezervacija){
@@ -57,13 +53,23 @@ class Application_Model_RezervacijeMapper
     }
     
     public function insert(Application_Model_Rezervacije $rezervacija){
-        return $this->getDbTable()->insert(array(
+        $rezervisanje = $this->getDbTable()->fetchAll('datum = "'.$rezervacija->getDatum().'" AND id_termin = '.$rezervacija->getTermin());
+        $prom = count($rezervisanje);
+        if ($prom == 0 AND ($rezervacija->getTermin()!= 0)) {
+            return $this->getDbTable()->insert(array(
             'id_termin'=>$rezervacija->getTermin(),
             'datum'=>$rezervacija->getDatum(), 
             'broj_osoba'=>$rezervacija->getBroj_osoba(), 
             'id_korisnik'=>$rezervacija->getKorisnik(), 
             'opis'=>$rezervacija->getOpis()
         ));
+        }
+    }
+    
+    public function select(Application_Model_Rezervacije $rezervacija){
+        $rezervisanje = $this->getDbTable()->fetchAll('datum = "'.$rezervacija->getDatum().'"');
+        $prom = count($rezervisanje);
+        return $prom;
     }
 
 }

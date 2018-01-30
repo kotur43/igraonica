@@ -25,7 +25,7 @@ class Application_Model_TerminiMapper
     
     public function dohvati($where){
         $select = $this->getDbTable()->select(Zend_Db_Table::SELECT_WITH_FROM_PART);
-        $select->where('id_termin NOT IN (?)',$where);
+        $select->where('termini.id_termin NOT IN (SELECT id_termin FROM rezervacije WHERE datum = "' .$where.'")');
         $rows = $this->getDbTable()->fetchAll($select);
         return $rows;
     }

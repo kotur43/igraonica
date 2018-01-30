@@ -3,6 +3,7 @@
 </div>
 <p>
    <?php echo $this->message;?>
+   <?php echo $this->error;?>
 </p>
         <p>Izaberi datum: </p>
         <?php 
@@ -18,7 +19,6 @@
             <br/>
             <input type="submit" name="dugme" value="Prikaži" class="btn"/> <?php endif;?>
         </form>
-        <?php echo $this->error;?>
         <?php echo $this->forma;?>
 </div>
 

@@ -36,10 +36,10 @@ class Application_Form_Rezervisanje extends Zend_Form
         $select->setLabel('Termin:');
         $select->setAttrib('required','true');
         $select->addMultiOption('0','Izaberite');
-        $select->setRequired(true);
         foreach ($this->options as $option){
                $select->addMultiOption($option->id_termin,$option->vreme);
         }
+        $select->setRequired(true);
         
         $button = new Zend_Form_Element_Submit('btnLogin');
         $button->setAttrib('class', 'btn btn-default');
