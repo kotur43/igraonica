@@ -1,10 +1,9 @@
-<h3><?php echo $this->title;?></h3>
+<h3><?php echo $this->naslov1;?></h3>
 <div class="row">
     <p><?php echo $this->error;?></p>
-    
-    <?php print $this->partialLoop('_radionica1.phtml',$this->uPripremi); ?>
+    <?php print $this->partialLoop('_radionica1.phtml',$this->spremne); ?>
     <h3>
-        <?php if(!empty($this->zavrseneRadionice)){echo $this->naslov;}?>
+        <?php if(!empty($this->zavrseneRadionice))?><h3><?php echo $this->naslov;?></h3>
     </h3>
 <?php print $this->partialLoop('_radionica1.phtml',$this->zavrseneRadionice); ?>
 </div>

@@ -28,8 +28,13 @@ class RadioniceController extends Core_BaseController
             if(count($uPripremi)==0){
                 $this->view->error="Trenutno ne postoji nijedna radionica ovog tipa u pripremi.";
             }
-            $this->view->title = $ime . " u najavi";
-            $this->view->uPripremi = $uPripremi;
+            $this->view->naslov1 = $ime . " u najavi";
+            $this->view->spremne = $uPripremi;
+            if(count($zavrsene)==0){
+                $this->view->error="Trenutno ne postoji nijedna završena radionica ovog tipa.";
+            }
+            $this->view->naslov1 = $ime . " u najavi";
+            $this->view->spremne = $uPripremi;
             if(count($zavrsene)!==0){
                 
                 $maloIme = strtolower($ime);
@@ -39,10 +44,13 @@ class RadioniceController extends Core_BaseController
         }
         else{
             
-            $radionica = new Application_Model_Radionice();
-            $zavrsene = $radioniceMapper->fetchAllWhere($radionica, 'vremeZavrsetka < ' . time());
-            $this->view->naslov = "Završene radionice";
-            $this->view->zavrseneRadionice = $zavrsene;
+            $radionicaa = new Application_Model_Radionice();
+            $zavrsenee = $radioniceMapper->fetchAllWhere($radionicaa, 'vremeZavrsetka < ' . time());
+            $uPriprema = $radioniceMapper->fetchAllWhere($radionicaa, 'vremePocetka > ' . time());
+            $this->view->naslov1 = "Radionice u najavi:";
+            $this->view->spremne = $uPriprema;
+            $this->view->naslov = "Završene radionice:";
+            $this->view->zavrseneRadionice = $zavrsenee;
         }
         
         
