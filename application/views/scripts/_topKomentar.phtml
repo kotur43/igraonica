@@ -2,6 +2,6 @@
         <blockquote><?php echo $this->tekst;?></blockquote>
         <figure><img class="circle" src="<?php echo $this->baseUrl('images/demo/60x60.png');?>" alt="">
           <figcaption><strong><?php echo $this->korisnik->ime.' '.$this->korisnik->prezime;?></strong><br>
-              <em><a href="<?php echo $this->baseUrl('/Radionice/prikazi/id/'.$this->radionica->id_radionica); ?>"><?php echo $this->radionica->naslov;?></a></em></figcaption>
+              <em><a href="<?php echo $this->baseUrl('/Radionice/prikazi/id/'.$this->radionica->id_radionica); ?>">Radionica: <?php echo $this->radionica->naslov;?></a></em></figcaption>
         </figure>
 </div>
