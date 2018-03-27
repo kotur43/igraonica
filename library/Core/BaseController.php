@@ -8,7 +8,6 @@
 /**
  * Description of BaseController
  *
- * @author Danijela
  */
 class Core_BaseController extends Zend_Controller_Action{
     //put your code here
